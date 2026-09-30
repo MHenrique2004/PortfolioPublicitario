@@ -1,20 +1,31 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { EXPERIENCES } from '../data/portfolioData';
 
 export const ExperienceTimeline: React.FC = () => {
   return (
     <section className="w-full px-5 md:px-10 py-16 flex flex-col gap-10 bg-[#f4f3f3]">
       {/* Header */}
-      <div className="flex items-center justify-between font-['Inter'] text-[11px] font-semibold text-[#5e5e5e] uppercase tracking-wider pb-3 border-b border-[#c4c7c7]">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="flex items-center justify-between font-['Inter'] text-[11px] font-semibold text-[#5e5e5e] uppercase tracking-wider pb-3 border-b border-[#c4c7c7]"
+      >
         <span>04 // PERCURSO EM AGÊNCIAS &amp; SET</span>
         <span className="font-mono">EXPERIÊNCIA PRÁTICA</span>
-      </div>
+      </motion.div>
 
       {/* List */}
       <div className="flex flex-col gap-5">
         {EXPERIENCES.map((item, idx) => (
-          <div
+          <motion.div
             key={idx}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="bg-[#e2e2e2] p-6 md:p-8 rounded-xl shadow-sm flex flex-col md:flex-row justify-between gap-6 border border-[#c4c7c7] hover:border-black transition-colors"
           >
             {/* Left Box */}
@@ -53,7 +64,7 @@ export const ExperienceTimeline: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { ProjectItem } from '../types/portfolio';
 
 interface EditorialProjectsIndexProps {
@@ -29,7 +30,13 @@ export const EditorialProjectsIndex: React.FC<EditorialProjectsIndexProps> = ({
   return (
     <div className="w-full flex flex-col gap-8">
       {/* Header and Filter */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-2 border-b border-neutral-800">
+      <motion.div 
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-2 border-b border-neutral-800"
+      >
         <div>
           <span className="font-['Inter'] text-[11px] font-semibold text-[#c9c6c5] uppercase tracking-widest">
             01 // ARQUIVO EDITORIAL
@@ -41,10 +48,16 @@ export const EditorialProjectsIndex: React.FC<EditorialProjectsIndexProps> = ({
         <p className="font-['Inter'] text-[14px] md:text-[15px] text-[#c9c6c5] max-w-md leading-relaxed">
           Títulos produzidos entre 2023 e 2026 para clientes diretos, corporações médicas, eventos esportivos e narrativas autorais.
         </p>
-      </div>
+      </motion.div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-2">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="flex flex-wrap items-center gap-2"
+      >
         <span className="text-[11px] font-['Inter'] uppercase tracking-wider text-neutral-400 mr-2">
           Filtrar por:
         </span>
@@ -61,13 +74,17 @@ export const EditorialProjectsIndex: React.FC<EditorialProjectsIndexProps> = ({
             {cat}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Gigantic Project Index Wall */}
       <div className="w-full flex flex-col divide-y divide-neutral-900 border-y border-neutral-900">
-        {filteredProjects.map((project) => (
-          <div
+        {filteredProjects.map((project, index) => (
+          <motion.div
             key={project.id}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
             onClick={() => onSelectProject(project)}
             className="group flex flex-col md:flex-row md:items-baseline justify-between py-5 px-3 md:px-5 hover:bg-[#1c1b1b] rounded-lg transition-all duration-200 cursor-pointer"
           >
@@ -89,7 +106,7 @@ export const EditorialProjectsIndex: React.FC<EditorialProjectsIndexProps> = ({
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

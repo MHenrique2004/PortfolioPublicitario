@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface AboutSectionProps {
   portraitImageUrl: string;
@@ -12,14 +13,26 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   return (
     <section className="w-full px-5 md:px-10 py-16 flex flex-col gap-10 bg-[#f4f3f3]" id="sobre">
       {/* Top Section Tag & Coordinates */}
-      <div className="flex items-center justify-between font-['Inter'] text-[11px] font-semibold text-[#5e5e5e] uppercase tracking-wider pb-3 border-b border-[#c4c7c7]">
+      <motion.div 
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="flex items-center justify-between font-['Inter'] text-[11px] font-semibold text-[#5e5e5e] uppercase tracking-wider pb-3 border-b border-[#c4c7c7]"
+      >
         <span>02 // AUTORIA &amp; RIGOR TÉCNICO</span>
         <span className="font-mono">RECIFE, PE [08°03′S 34°52′W]</span>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Portrait & Specs */}
-        <div className="lg:col-span-5 flex flex-col gap-5">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-5 flex flex-col gap-5"
+        >
           <div className="relative bg-[#e2e2e2] rounded-xl overflow-hidden shadow-sm aspect-[4/5] border border-[#c4c7c7] group">
             <img
               src={portraitImageUrl}
@@ -77,10 +90,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               <span className="text-[#1a1c1c] font-medium">PUBLICIDADE, REELS &amp; DOCS</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column: Narrative & Degrees */}
-        <div className="lg:col-span-7 flex flex-col gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-7 flex flex-col gap-8"
+        >
           <div className="flex flex-col gap-3">
             <span className="font-['Playfair_Display'] text-[20px] md:text-[24px] italic text-[#5e5e5e]">
               Da ideia inicial à edição final..
@@ -146,7 +165,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

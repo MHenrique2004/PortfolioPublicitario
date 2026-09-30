@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface ContactSectionProps {
   onOpenBriefing: () => void;
@@ -8,7 +9,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBriefing }
   return (
     <section className="w-full bg-black text-white py-16 px-5 md:px-10 flex flex-col gap-12" id="contato">
       {/* Title */}
-      <div className="flex flex-col gap-2">
+      <motion.div 
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="flex flex-col gap-2"
+      >
         <span className="font-['Inter'] text-[11px] font-semibold text-[#c9c6c5] uppercase tracking-widest">
           05 // CONEXÃO DIRETA &amp; DIÁRIAS
         </span>
@@ -22,12 +29,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBriefing }
         <p className="font-['Inter'] text-[16px] md:text-[18px] text-[#c9c6c5] max-w-2xl mt-2 leading-relaxed">
           Disponível para diárias de filmagem, direção de fotografia, edição remota e concepção de campanhas em todo o Nordeste e território nacional.
         </p>
-      </div>
+      </motion.div>
 
       {/* Contact Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* WhatsApp Card */}
-        <a
+        <motion.a
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           href="https://wa.me/5581999529339"
           target="_blank"
           rel="noopener noreferrer"
@@ -49,10 +60,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBriefing }
               (81) 99952-9339
             </p>
           </div>
-        </a>
+        </motion.a>
 
         {/* Email Card */}
-        <a
+        <motion.a
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           href="mailto:mhenriquesouza983@gmail.com"
           className="bg-[#1c1b1b] p-6 md:p-8 rounded-xl flex flex-col justify-between gap-6 group hover:bg-white hover:text-black transition-all duration-300 border border-neutral-800"
         >
@@ -72,10 +87,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBriefing }
               mhenriquesouza983@gmail.com
             </p>
           </div>
-        </a>
+        </motion.a>
 
         {/* Instagram Card */}
-        <a
+        <motion.a
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           href="https://instagram.com/_.henrique2004"
           target="_blank"
           rel="noopener noreferrer"
@@ -97,11 +116,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBriefing }
               @__.henrique2004
             </p>
           </div>
-        </a>
+        </motion.a>
       </div>
 
       {/* Final Direct CTA Bar */}
-      <div className="w-full bg-white text-black p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-neutral-300">
+      <motion.div 
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full bg-white text-black p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-neutral-300"
+      >
         <div>
           <span className="font-['Inter'] text-[11px] font-semibold text-[#5e5e5e] uppercase tracking-widest block">
             // AGENDA ABERTA PRIMEIRO SEMESTRE
@@ -130,7 +155,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBriefing }
             <span className="material-symbols-outlined text-[16px]">send</span>
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

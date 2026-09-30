@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ProjectItem } from '../types/portfolio';
 
 interface ProjectShowcaseGridProps {
@@ -19,12 +20,16 @@ export const ProjectShowcaseGrid: React.FC<ProjectShowcaseGridProps> = ({
 
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-      {showcaseProjects.map((project) => {
+      {showcaseProjects.map((project, index) => {
         const currentImg = imageUrls[project.imageKey] || project.stills[0];
 
         return (
-          <div
+          <motion.div
             key={project.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col bg-[#1c1b1b] rounded-xl overflow-hidden group shadow-md border border-neutral-800 transition-all hover:border-neutral-700"
           >
             {/* Image Container */}
@@ -99,7 +104,7 @@ export const ProjectShowcaseGrid: React.FC<ProjectShowcaseGridProps> = ({
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>

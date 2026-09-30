@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface HeroSectionProps {
   heroImageUrl: string;
@@ -17,7 +18,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section className="w-full px-5 md:px-10 py-10 md:py-12 flex flex-col gap-10 relative">
       {/* Top Header Row with Headline and Disciplines Box */}
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
-        <div className="flex-1 min-w-0">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="flex-1 min-w-0"
+        >
           {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8e8e8] text-[#1a1c1c] mb-4 font-['Inter'] text-[11px] font-semibold tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-black"></span>
             <span>MANIFIESTO VISUAL 2024/2025</span>
@@ -33,10 +39,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               visual
             </span>
           </h1>
-        </div>
+        </motion.div>
 
         {/* Disciplines Card */}
-        <div className="w-full lg:w-96 flex flex-col justify-between gap-4 bg-[#e2e2e2] p-5 rounded-lg border border-[#c4c7c7] shadow-sm">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full lg:w-96 flex flex-col justify-between gap-4 bg-[#e2e2e2] p-5 rounded-lg border border-[#c4c7c7] shadow-sm"
+        >
           <div className="flex items-center justify-between font-['Inter'] text-[11px] font-semibold text-[#5e5e5e] pb-1 uppercase tracking-wider border-b border-[#c4c7c7]">
             <span>// DISCIPLINAS</span>
             <span>MAURÍCIO HENRIQUE</span>
@@ -54,20 +65,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               INICIAR PROJETO
             </button>
-            {/* <button
-              onClick={onOpenShowreel}
-              className="px-4 py-2 bg-[#f4f3f3] text-[#1a1c1c] font-['Inter'] text-xs font-semibold rounded-full border border-[#747878] hover:bg-white transition-colors uppercase tracking-wider cursor-pointer"
-            >
-              VER REEL &amp; ÍNDICE
-            </button> */}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Editorial Stills Banner Hero */}
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         {/* Main Banner Still */}
-        <div className="lg:col-span-8 bg-[#1c1b1b] rounded-xl overflow-hidden relative shadow-sm min-h-[380px] md:min-h-[480px] flex items-end group border border-neutral-800">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-8 bg-[#1c1b1b] rounded-xl overflow-hidden relative shadow-sm min-h-[380px] md:min-h-[480px] flex items-end group border border-neutral-800"
+        >
           <img
             src={heroImageUrl}
             alt="Maurício Henrique - Filmmaker em ação com equipamento cinematográfico"
@@ -116,10 +126,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span>SHUTTER 1/48 • F/1.8</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Technical Metric Card */}
-        <div className="lg:col-span-4 flex flex-col justify-between gap-6 bg-black text-white p-6 md:p-8 rounded-xl shadow-md border border-neutral-800">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-4 flex flex-col justify-between gap-6 bg-black text-white p-6 md:p-8 rounded-xl shadow-md border border-neutral-800"
+        >
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between text-[11px] font-['Inter'] font-semibold text-[#c9c6c5] uppercase tracking-wider">
               <span>[METRIC 01]</span>
@@ -150,11 +165,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="text-white font-bold font-mono text-sm">DO CONCEITO À PÓS-PRODUÇÃO 4K</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Ticker Strip */}
-      <div className="w-full bg-[#e2e2e2] py-2.5 px-4 rounded-lg flex items-center justify-between overflow-x-auto no-scrollbar font-['Inter'] text-[11px] font-semibold tracking-widest uppercase text-[#5e5e5e] border border-[#c4c7c7]">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.45 }}
+        className="w-full bg-[#e2e2e2] py-2.5 px-4 rounded-lg flex items-center justify-between overflow-x-auto no-scrollbar font-['Inter'] text-[11px] font-semibold tracking-widest uppercase text-[#5e5e5e] border border-[#c4c7c7]"
+      >
         <span className="whitespace-nowrap">COBERTURA DE EVENTOS</span>
         <span className="px-2">—</span>
         <span className="whitespace-nowrap">ENSAIOS FOTOGRÁFICOS</span>
@@ -166,7 +186,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <span className="whitespace-nowrap">PLANEJAMENTO DE MARKETING</span>
         <span className="px-2">—</span>
         <span className="whitespace-nowrap">EDIÇÃO de vídeo</span>
-      </div>
+      </motion.div>
     </section>
   );
 };
