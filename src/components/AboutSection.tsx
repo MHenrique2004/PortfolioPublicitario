@@ -33,11 +33,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-5 flex flex-col gap-5"
         >
-          <div className="relative bg-[#e2e2e2] rounded-xl overflow-hidden shadow-sm aspect-[4/5] border border-[#c4c7c7] group">
+          <div className="relative bg-[#1c1b1b] rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] border border-neutral-800 group hover:shadow-[0_20px_45px_-10px_rgba(0,0,0,0.4)] transition-all duration-500">
             <img
               src={portraitImageUrl}
               alt="Maurício Henrique em estúdio com câmera de cinema"
-              className="w-full h-full object-cover filter grayscale contrast-125 transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer"
+              className="w-full h-full object-cover filter grayscale contrast-125 brightness-95 transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105 cursor-pointer"
               onClick={() =>
                 onInspectImage(
                   portraitImageUrl,
@@ -46,7 +46,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 )
               }
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+            {/* Cinematic Depth Gradient and Vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-500 pointer-events-none"></div>
+            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.8)] pointer-events-none"></div>
 
             {/* Quick Action to inspect image */}
             <div className="absolute top-3 right-3 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-10">

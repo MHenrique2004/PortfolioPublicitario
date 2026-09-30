@@ -76,12 +76,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-8 bg-[#1c1b1b] rounded-xl overflow-hidden relative shadow-sm min-h-[380px] md:min-h-[480px] flex items-end group border border-neutral-800"
+          className="lg:col-span-8 bg-[#181818] rounded-2xl overflow-hidden relative shadow-2xl min-h-[380px] md:min-h-[480px] flex items-end group border border-neutral-800 hover:border-neutral-700 transition-colors duration-500"
         >
           <img
             src={heroImageUrl}
             alt="Maurício Henrique - Filmmaker em ação com equipamento cinematográfico"
-            className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 transition-transform duration-700 group-hover:scale-[1.02] cursor-pointer"
+            className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 brightness-95 transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-105 cursor-pointer"
             onClick={() =>
               onInspectImage(
                 heroImageUrl,
@@ -90,7 +90,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               )
             }
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent pointer-events-none"></div>
+          {/* Depth Gradient & Vignette Layers */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20 opacity-90 group-hover:opacity-75 transition-opacity duration-500 pointer-events-none"></div>
+          <div className="absolute inset-0 shadow-[inset_0_0_50px_rgba(0,0,0,0.9)] pointer-events-none"></div>
 
           {/* Top Quick Action to inspect image */}
           <div className="absolute top-4 right-4 z-20 flex items-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
@@ -102,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   'DCI-4K 24FPS • Shutter 1/48 • F/1.8 • Primes Cinema'
                 )
               }
-              className="p-1.5 bg-black/80 hover:bg-black text-white rounded-md backdrop-blur-md border border-white/20 shadow-md"
+              className="p-1.5 bg-black/80 hover:bg-black text-white rounded-md backdrop-blur-md border border-white/20 shadow-md transition-transform hover:scale-105"
               title="Visualizar em tela cheia"
             >
               <span className="material-symbols-outlined text-[16px]">fullscreen</span>
